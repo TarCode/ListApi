@@ -12,7 +12,7 @@ var List = function() {
 
   // Add a data item to the front of the list
   this.add = function(elem) {
-    //this.item = new ListItem(elem, this.item)
+    this.item = new ListItem(elem, this.item)
   }
 
   // Returns true if the list is empty
@@ -24,8 +24,13 @@ var List = function() {
   // the list is empty, return null. This leaves
   // the list unmodified
   this.head = function() {
-    // ......
-    return null
+      if(this.item === null){
+          return null
+      }
+      else {
+          return this.item.data
+      }
+
   }
 
   // Remove item off the head of the list and return
