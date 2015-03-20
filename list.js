@@ -38,21 +38,45 @@ var List = function() {
   // next element in the list if it exists. If the
   // list is empty, we return null
   this.pop = function() {
-    // ......
-    return null
+      if(this.item === null){
+        return null;
+      }
+      else{
+        var temp = this.item.data;
+        this.item = this.item.tail;
+        return temp;
+      }
   }
 
   // Return the number of elements in the list.
   this.length = function() {
-    // ......
-    return -1
+    var temp = this.item;
+    var count = 0;
+    if(this.item === null){
+      return 0;
+    }
+    else{
+      while(temp){
+        count++;
+        temp = temp.tail;
+      }
+      return count;
+    }
   }
 
   // Return the last data item in the list if it exists. If
   // not, return null
   this.last = function() {
-    // ......
-    return null
-  }
+    if(this.empty()){
+      return null
+    }
+    else{
+      var last = this.item.tail;
+      while(last.tail){
+        last = last.tail;
+      }
+      return last.data;
+    }
+}
 }
 
