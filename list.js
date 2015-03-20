@@ -30,7 +30,6 @@ var List = function() {
       else {
           return this.item.data
       }
-
   }
 
   // Remove item off the head of the list and return
@@ -52,6 +51,7 @@ var List = function() {
   this.length = function() {
     var temp = this.item;
     var count = 0;
+
     if(this.item === null){
       return 0;
     }
@@ -72,11 +72,39 @@ var List = function() {
     }
     else{
       var last = this.item.tail;
+
       while(last.tail){
         last = last.tail;
       }
       return last.data;
     }
-}
+  }
+
+  // An equality functions,checks if the list length and
+  // ordering is the same
+  this.equals = function(that) {
+    if(this.length() !== that.length()) {
+      return false;
+    }
+    else if(this.empty() && that.empty()) {
+      return true;
+    }
+    var temp = this.item;
+    var temp2 = that.item;
+    var eq = true;
+    if(!this.empty() && !that.empty()) {
+      while(temp.tail && eq === true){
+        if(temp.data === temp2.data) {
+          eq = true;
+          temp = temp.tail;
+          temp2 = temp2.tail;
+        }
+        else{
+          eq = false;
+        }
+      }
+      return eq;
+    }
+    }
 }
 

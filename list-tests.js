@@ -78,3 +78,21 @@ QUnit.test("Returns the last element in the list", function (assert) {
   assert.equal(l.last(),"a")
   assert.equal(l.length(), 3)
 });
+
+QUnit.test("Returns true if the lists are equal and false is not", function (assert) {
+  var l = new List()
+  var l2 = new List()
+  assert.equal(l.equals(l2), true)
+
+  l.add("a")
+  l.add("b")
+  l2.add("a")
+  l2.add("b")
+  assert.equal(l.equals(l2), true)
+
+  l2.add("c")
+  assert.equal(l.equals(l2), false)
+
+  l.pop()
+  assert.equal(l.equals(l2), false)
+});
