@@ -4,7 +4,7 @@
   "description": "##Required tutorials to be completed:",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": " qunit -c ./list.js -t ./list-tests.js"
   },
   "author": "",
   "license": "ISC",

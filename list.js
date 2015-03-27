@@ -1,13 +1,19 @@
+/*
+    Date: 27/03/2015
+    File: list.js
+    Authors: P. Fatyela, T. Isaacs
+    Description: Impementation file for ListApi 
+*/
 
 // An object to hold the item we will be
 // storing in our list
-var ListItem = function(data, tail) {
+exports.ListItem = function(data, tail) {
   this.tail = tail
   this.data = data
 }
 
 // List implementation
-var List = function() {
+exports.List = function() {
   this.item = null
 
   // Add a data item to the front of the list
@@ -38,27 +44,27 @@ var List = function() {
   // list is empty, we return null
   this.pop = function() {
       if(this.item === null){
-        return null;
+        return null
       }
       else{
-        var temp = this.item.data;
-        this.item = this.item.tail;
-        return temp;
+        var temp = this.item.data
+        this.item = this.item.tail
+        return temp
       }
   }
 
   // Return the number of elements in the list.
   this.length = function() {
-    var temp = this.item;
+    var temp = this.item
     var count = 0;
 
     if(this.item === null){
-      return 0;
+      return 0
     }
     else{
       while(temp){
         count++;
-        temp = temp.tail;
+        temp = temp.tail
       }
       return count;
     }
@@ -71,12 +77,12 @@ var List = function() {
       return null
     }
     else{
-      var last = this.item.tail;
+      var last = this.item.tail
 
       while(last.tail){
-        last = last.tail;
+        last = last.tail
       }
-      return last.data;
+      return last.data
     }
   }
 
@@ -84,43 +90,43 @@ var List = function() {
   // ordering is the same
   this.equals = function(that) {
     if(this.length() !== that.length()) {
-      return false;
+      return false
     }
     else if(this.empty() && that.empty()) {
-      return true;
+      return true
     }
-    var temp = this.item;
-    var temp2 = that.item;
-    var eq = true;
+    var temp = this.item
+    var temp2 = that.item
+    var eq = true
     if(!this.empty() && !that.empty()) {
       while(temp.tail && eq === true){
         if(temp.data === temp2.data) {
           eq = true;
-          temp = temp.tail;
-          temp2 = temp2.tail;
+          temp = temp.tail
+          temp2 = temp2.tail
         }
         else{
-          eq = false;
+          eq = false
         }
       }
-      return eq;
+      return eq
     }
     }
 
     // A join method that joins two lists together
     this.join = function(that) {
-      var listCopy= that.item;
+      var listCopy= that.item
 
       while(listCopy){
         this.add(listCopy.data);
-          listCopy = listCopy.tail;
+          listCopy = listCopy.tail
       }
         return this.item
     }
 
     // A reverse method that reverses the list order
     this.reverse = function() {
-      var newList = new List();
+      var newList = new List()
 
       while(!this.empty()){
           var element = this.pop()
