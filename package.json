@@ -9,8 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-qunit": "^1.2.1"
+    "qunit": "~0.7.5"
   },
   "repository": {
     "type": "git",
