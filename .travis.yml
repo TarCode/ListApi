@@ -3,4 +3,4 @@
 before_script:
   - npm install
 
-script: gulp test
+script: npm test
