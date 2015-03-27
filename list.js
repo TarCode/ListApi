@@ -106,5 +106,29 @@ var List = function() {
       return eq;
     }
     }
+
+    // A join method that joins two lists together
+    this.join = function(that) {
+      var listCopy= that.item;
+
+      while(listCopy){
+        this.add(listCopy.data);
+          listCopy = listCopy.tail;
+      }
+        return this.item
+    }
+
+    // A reverse method that reverses the list order
+    this.reverse = function() {
+      var newList = new List();
+
+      while(!this.empty()){
+          var element = this.pop()
+          newList.add(element)
+
+      }
+        this.item = newList.item
+        return this.item
+    }
 }
 

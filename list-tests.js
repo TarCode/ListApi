@@ -96,3 +96,43 @@ QUnit.test("Returns true if the lists are equal and false is not", function (ass
   l.pop()
   assert.equal(l.equals(l2), false)
 });
+
+QUnit.test("Returns the joined list", function (assert) {
+  var l = new List()
+  var l2 = new List()
+  var newList = new List()
+
+  l.add("a")
+  l.add("b")
+  l2.add("c")
+  l2.add("d")
+
+  newList.add('a')
+      newList.add('b')
+          newList.add('d')
+              newList.add('c')
+
+
+  l.join(l2);
+
+  assert.ok(l.equals(newList), 'ok')
+});
+
+QUnit.test("Returns the list in reverse order", function (assert) {
+    var list = new List();
+
+    list.add('a')
+    list.add('b')
+    list.add('c')
+
+    list.reverse();
+
+    var resultList = new List();
+
+    resultList.add('c')
+    resultList.add('b')
+    resultList.add('a')
+
+    assert.ok(list.equals(resultList),'ok')
+});
+
