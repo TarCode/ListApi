@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     qunit = require('gulp-qunit');
 
 gulp.task('test', function() {
-    return gulp.src('./test-setup.html')
+    return gulp.src('./list-tests.js')
         .pipe(qunit());
 });
 
